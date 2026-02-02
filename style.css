@@ -1,0 +1,490 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #fdfaf6; /* Un blanc cassé plus chaleureux */
+    color: #2c3e50;
+}
+
+/* Header style "Ardoise" */
+header {
+    background: #1a1a1a;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #e67e22;
+}
+
+nav a {
+    color: #f1c40f; /* Couleur or/beurre */
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* SECTION ACCUEIL avec Image de fond */
+#accueil {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('photo_interieur.png'); /* Chemin direct sans images/ */
+    background-size: cover;
+    background-position: center;
+    /* ... reste du code ... */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Cartes de contenu */
+section {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Style des plats */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.plat-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+button {
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d35400;
+    transform: scale(1.05);
+}
+.promo-bar {
+    background-color: #f1c40f; /* Jaune d'or */
+    color: #1a1a1a;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.categorie-titre {
+    background: #f1c40f;
+    color: #1a1a1a;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* On ajuste la grille pour qu'elle soit plus flexible */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.btn-vider {
+    background: #c0392b; /* Rouge discret */
+    font-size: 0.8rem;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.btn-vider:hover {
+    background: #e74c3c; /* Rouge plus vif au survol */
+}
+
+.panier-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le bouton dans le bloc bleu */
+}
+.btn-valider {
+    background: #27ae60; /* Vert forêt/cuisine */
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 200px;
+}
+
+.btn-valider:hover {
+    background: #219150;
+    transform: translateY(-2px);
+}
+.chef-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Pour s'adapter aux mobiles */
+}
+
+.chef-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #f1c40f; /* Rappel de la couleur or */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.chef-texte {
+    flex: 1;
+    min-width: 300px;
+}
+
+.chef-texte h2 {
+    margin-top: 0;
+    color: #1a1a1a;
+}
+.partenaires-bandeau {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.partenaires-bandeau h4 {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    opacity: 0.8;
+}
+
+.partenaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.partenaire:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.partenaire p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+/* Style léger pour les boissons (si pas d'image) */
+#emporter .menu-item:not(:has(img)) {
+    background-color: #fcfcfc;
+    border-left: 5px solid #3498db; /* Un petit trait bleu pour l'aspect "boisson" */
+}
+#livre-dor textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+}
+
+#liste-avis {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.avis-item {
+    background: #fdfaf6;
+    padding: 15px;
+    border-left: 5px solid #f1c40f;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.rating {
+    display: flex;
+    flex-direction: row-reverse; /* Pour que le survol fonctionne de gauche à droite */
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.star {
+    color: #ccc;
+    transition: 0.2s;
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star.active,
+.star.active ~ .star {
+    color: #f1c40f; /* Or/Jaune */
+}
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-col h4 {
+    color: #f1c40f;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #f1c40f;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+#equipe {
+    text-align: center;
+    background-color: #fff;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.equipe-card {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.equipe-card:hover {
+    transform: translateY(-10px);
+}
+
+.equipe-photo-cercle {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f1c40f;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.equipe-photo-cercle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poste {
+    font-weight: bold;
+    color: #e67e22;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espace entre les drapeaux et le texte */
+    font-size: 2.5rem;
+}
+
+.flag {
+    font-size: 2rem; /* Ajuste la taille de l'émoji drapeau */
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5)); /* Donne un peu de relief */
+}
+.img-flag {
+    width: 40px; /* Taille du drapeau */
+    height: auto;
+    border: 1px solid #fff; /* Un petit cadre blanc pour le faire ressortir sur le fond ardoise */
+}
+.external-delivery {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px dashed #06c167; /* Vert UberEats */
+}
+
+.btn-ubereats {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #000000;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-ubereats:hover {
+    background-color: #06c167; /* Passage au vert au survol */
+    transform: scale(1.05);
+    color: white;
+}
+
+.btn-ubereats img {
+    filter: brightness(0) invert(1); /* Rend le logo blanc pour le fond noir */
+}
+#plat-vedette {
+    padding: 40px 20px;
+    background: #fdfdfd;
+}
+
+.vedette-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #1a1a1a; /* Fond sombre style ardoise */
+    color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border: 2px solid #f1c40f;
+}
+
+.vedette-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: #f1c40f;
+    color: #000;
+    padding: 10px 40px;
+    transform: rotate(35deg);
+    font-weight: bold;
+    z-index: 2;
+    font-size: 0.9rem;
+}
+
+.vedette-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.vedette-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vedette-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.vedette-text {
+    flex: 1;
+    padding: 40px;
+    min-width: 300px;
+}
+
+.vedette-text h3 {
+    color: #f1c40f;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.vedette-text .description {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+.vedette-text .prix {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-commander-vedette {
+    background: #f1c40f;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-commander-vedette:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .vedette-content { flex-direction: column; }
+    .vedette-text { text-align: center; }
+}

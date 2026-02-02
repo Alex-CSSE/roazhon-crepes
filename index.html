@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roazhon Crêpes - Crêperie Bretonne</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="promo-bar">
+    ✨ Offre spéciale : Une bolée de cidre offerte pour 2 galettes achetées ! ✨
+</div>
+    <header>
+<h1>
+    <img src="gwenn-ha-du.png" alt="Drapeau Breton" class="img-flag"> 
+    Roazhon Crêpes 
+    <img src="gwenn-ha-du.png" alt="Drapeau Breton" class="img-flag">
+</h1>    <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#reservation">Réserver</a>
+            <a href="#emporter">À emporter</a>
+            <a href="#contact">Nous trouver</a>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <h2>Degemer Mat !</h2>
+        <p>Bienvenue dans le temple de la galette au cœur de Rennes.</p>
+    </section>
+
+    <section id="reservation">
+        <h2>Réserver une table</h2>
+        <form id="form-reservation">
+            <input type="text" placeholder="Votre nom" required>
+            <input type="number" placeholder="Nombre de personnes" required>
+            <input type="date" required>
+            <button type="submit">Confirmer la réservation</button>
+        </form>
+    </section>
+<section id="chef">
+    <div class="chef-container">
+        <img src="chef.jpg" alt="Portrait du Chef" class="chef-img">
+        <div class="chef-texte">
+            <h2>Rencontrez notre Chef</h2>
+            <p><strong>Alex C.</strong>, passionné par le terroir breton depuis plus de 20 ans, travaille exclusivement avec des farines locales.</p>
+            <p><em>"Ma mission : vous faire redécouvrir le vrai goût de la galette kraz (croustillante) !"</em></p>
+        </div>
+    </div>
+    <div class="partenaires-bandeau">
+    <h4>Fiers de nos producteurs locaux :</h4>
+    <div class="logos-container">
+        <div class="partenaire">
+            <span class="logo-icon">🌾</span>
+            <p>Minoterie de Bretagne</p>
+        </div>
+        <div class="partenaire">
+            <span class="logo-icon">🍎</span>
+            <p>Cidre Artisanal du 35</p>
+        </div>
+        <div class="partenaire">
+            <span class="logo-icon">🐄</span>
+            <p>Laiterie de Brocéliande</p>
+        </div>
+    </div>
+</div>
+</section>
+<section id="plat-vedette">
+    <div class="vedette-container">
+        <div class="vedette-badge">⭐ Suggestion du Moment</div>
+        <div class="vedette-content">
+            <div class="vedette-image">
+                <img src="galette-speciale.jpg" alt="La Galette Roazhonnaise">
+            </div>
+            <div class="vedette-text">
+                <h3>La Galette "Roazhon" 🏴󠁦󠁲󠁢󠁲󠁥󠁿</h3>
+                <p class="description">Une base de blé noir croustillante, garnie de d'andouillette, oignons confits au cidre, et une touche de moutarde à l'ancienne.</p>
+                <p class="prix">10,50€</p>
+                <button class="btn-commander-vedette" onclick="ajouterAuPanier('Galette Roazhon Park', 10.50)">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="emporter">
+    <h2>Vente à emporter</h2>
+
+    <h3 class="categorie-titre">Nos Galettes Salées (Blé Noir)</h3>
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="complete.png" class="plat-img" alt="La Complète">
+            <div class="plat-info">
+                <h3>La Complète</h3>
+                <p>Œuf, jambon, emmental.</p>
+                <span class="prix">8.50€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Complète', 8.5)">Ajouter</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="forestiere.png" class="plat-img" alt="La Forestière">
+            <div class="plat-info">
+                <h3>La Forestière</h3>
+                <p>Champignons, lardons, crème.</p>
+                <span class="prix">10.00€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Forestière', 10)">Ajouter</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="saucisse.png" class="plat-img" alt="Galette Saucisse">
+            <div class="plat-info">
+                <h3>La Saucisse</h3>
+                <p>Véritable saucisse bretonne.</p>
+                <span class="prix">7.50€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Saucisse', 7.5)">Ajouter</button>
+        </div>
+    </div>
+
+    <h3 class="categorie-titre">Nos Crêpes Sucrées (Froment)</h3>
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="sucre.png" class="plat-img" alt="Crêpe Sucre">
+            <div class="plat-info">
+                <h3>La Simple</h3>
+                <p>Beurre demi-sel et sucre.</p>
+                <span class="prix">4.00€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Simple', 4)">Ajouter</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="nutella.png" class="plat-img" alt="Crêpe Nutella">
+            <div class="plat-info">
+                <h3>La Nutella</h3>
+                <p>Gourmande au chocolat noisette.</p>
+                <span class="prix">5.50€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Nutella', 5.5)">Ajouter</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="kinder.png" class="plat-img" alt="Crêpe Kinder">
+            <div class="plat-info">
+                <h3>La Kinder</h3>
+                <p>Avec morceaux de Kinder Bueno.</p>
+                <span class="prix">6.50€</span>
+            </div>
+            <button onclick="ajouterAuPanier('La Kinder', 6.5)">Ajouter</button>
+        </div>
+    </div>
+<h3 class="categorie-titre">Nos Boissons Fraîches</h3>
+<div class="menu-container">
+    <div class="menu-item">
+        <div class="plat-info">
+            <h3>Eau Source Plancoët</h3>
+            <p>L'eau minérale de Bretagne (50cl).</p>
+            <span class="prix">2.00€</span>
+        </div>
+        <button onclick="ajouterAuPanier('Eau Plancoët', 2)">Ajouter</button>
+    </div>
+
+    <div class="menu-item">
+        <div class="plat-info">
+            <h3>Coca-Cola</h3>
+            <p>Classique ou Zéro (33cl).</p>
+            <span class="prix">3.00€</span>
+        </div>
+        <button onclick="ajouterAuPanier('Coca', 3)">Ajouter</button>
+    </div>
+
+    <div class="menu-item">
+        <div class="plat-info">
+            <h3>Bière Bretonne (Lancelot)</h3>
+            <p>Bière artisanale blonde ou ambrée.</p>
+            <span class="prix">5.00€</span>
+        </div>
+        <button onclick="ajouterAuPanier('Bière Lancelot', 5)">Ajouter</button>
+    </div>
+
+    <div class="menu-item">
+        <div class="plat-info">
+            <h3>Cidre Fermier</h3>
+            <p>La bolée traditionnelle (Brut ou Doux).</p>
+            <span class="prix">4.50€</span>
+        </div>
+        <button onclick="ajouterAuPanier('Cidre Fermier', 4.5)">Ajouter</button>
+    </div>
+</div>
+
+<div class="panier-total">
+        <h3>Votre Commande</h3>
+        <ul id="liste-commande" style="list-style: none; padding: 0;">
+            </ul>
+        <p id="statut-panier">Prêt à commander ?</p>
+        <p><strong>Total Panier : <span id="total-prix">0.00</span>€</strong></p>
+        <button onclick="viderPanier()" class="btn-vider">Vider le panier</button>
+        <button onclick="validerCommande()" class="btn-valider">🚀 Commander maintenant</button>
+        <div class="external-delivery">
+    <p>Pas envie de sortir ?</p>
+    <a href="https://www.ubereats.com/fr" target="_blank" class="btn-ubereats">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Uber_Eats_2020_logo.svg" alt="Uber Eats" style="width: 100px;">
+        <span>Commander sur Uber Eats</span>
+    </a>
+</div>
+    </div>
+</section>
+<section id="equipe">
+    <h2>L'Équipe du Roazhon</h2>
+    <div class="equipe-grid">
+    <div class="equipe-card">
+        <div class="equipe-photo-cercle">
+            <img src="marie.jpg" alt="Marie, barmaid">
+        </div>
+        <h3>Marie</h3>
+        <p class="poste">Barmaid</p>
+        <p>"Prête à vous servir le meilleur des cidres et des jus bretons !"</p>
+    </div>
+
+    <div class="equipe-card">
+        <div class="equipe-photo-cercle">
+            <img src="leo.jpg" alt="Léo, serveur">
+        </div>
+        <h3>Léo</h3>
+        <p class="poste">Serveur</p>
+        <p>"À votre écoute pour une expérience gourmande inoubliable."</p>
+    </div>
+
+    <div class="equipe-card">
+        <div class="equipe-photo-cercle">
+            <img src="simon.jpg" alt="Simon, serveur">
+        </div>
+        <h3>Simon</h3>
+        <p class="poste">Serveur</p>
+        <p>"Le sourire en prime pour accompagner vos galettes."</p>
+    </div>
+</div>
+    </div>
+</section>
+<section id="livre-dor">
+    <h2>Livre d'Or</h2>
+    <p>Partagez votre expérience chez Roazhon Crêpes !</p>
+    
+ <form id="form-avis">
+    <input type="text" id="avis-nom" placeholder="Votre prénom" required>
+    
+    <div class="rating">
+        <span class="star" data-value="5">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="1">★</span>
+    </div>
+    <input type="hidden" id="note-selectionnee" value="5">
+
+    <textarea id="avis-message" placeholder="Votre message gourmand..." required></textarea>
+    <button type="submit">Publier mon avis</button>
+</form>
+
+    <hr>
+
+    <div id="liste-avis">
+        <div class="avis-item">
+            <p><strong>Loïc de Redon :</strong> "La galette saucisse est une tuerie ! Je reviendrai."</p>
+            <span>⭐⭐⭐⭐⭐</span>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Nous trouver à Rennes</h2>
+    <p>Place de la Mairie, 35000 Rennes</p>
+    <div id="map" style="height: 400px; width: 100%; border-radius: 8px; border: 2px solid #2c3e50;"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>Horaires</h4>
+            <p>Lundi - Samedi : 11h - 14h et 18h 22h</p>
+            <p>Dimanche : 18h - 22h</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Suivez-nous</h4>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">TripAdvisor</a>
+                <a href="#">Tiktok</a>
+
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>📞 06 50 92 64 88</p>
+            <p>✉️ degemer@roazhon-crepes.bzh</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2018 Roazhon Crêpes - Fait avec beurre et amour en Bretagne.</p>
+    </div>
+</footer>
+</body>
+</html>
